@@ -1,61 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anastasiia Losieva – App Developer</title>
+  <link rel="preload" href="assets/homepage-hero.png" as="image">
   <style>
+    :root {
+      color-scheme: light;
+      --ink: #171a1c;
+      --muted: #5c6467;
+      --paper: #f7f4ef;
+      --line: rgba(23, 26, 28, 0.14);
+      --green: #4e6b54;
+      --coral: #c96f5d;
+      --blue: #24475f;
+      --white: #fffaf4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 2em;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
-      background: #f9f9f9;
+      color: var(--ink);
+      background: var(--paper);
     }
-    header, footer {
-      text-align: center;
-      margin-bottom: 2em;
+
+    a {
+      color: inherit;
     }
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1.25rem 0;
+      color: var(--white);
+    }
+
+    .brand {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     nav a {
-      margin: 0 10px;
       text-decoration: none;
-      color: #333;
+      font-size: 0.92rem;
+      font-weight: 650;
+      opacity: 0.9;
+      transition: opacity 160ms ease, transform 160ms ease;
     }
-    a.button {
+
+    nav a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: min(680px, 76vh);
+      overflow: hidden;
+      display: grid;
+      align-items: end;
+      background: #101516;
+      color: var(--white);
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero::before {
+      z-index: -2;
+      background-image: url("assets/homepage-hero.png");
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.02);
+      animation: hero-breathe 16s ease-in-out infinite alternate;
+    }
+
+    .hero::after {
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(16, 21, 22, 0.74), rgba(16, 21, 22, 0.36) 48%, rgba(16, 21, 22, 0.08));
+    }
+
+    .hero-content {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 8rem 0 4rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: rgba(255, 250, 244, 0.78);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(2.6rem, 8vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 580px;
+      margin: 1.2rem 0 0;
+      color: rgba(255, 250, 244, 0.88);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+
+    .button {
       display: inline-block;
-      margin-top: 1em;
-      padding: 10px 20px;
-      background-color: #0073e6;
-      color: white;
-      border-radius: 5px;
+      min-width: 11.5rem;
+      padding: 0.82rem 1rem;
+      border: 1px solid rgba(255, 250, 244, 0.28);
+      border-radius: 8px;
+      color: var(--white);
       text-decoration: none;
+      text-align: center;
+      font-weight: 760;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: var(--white);
+      color: var(--ink);
+      border-color: var(--white);
+    }
+
+    .button.secondary {
+      background: rgba(255, 250, 244, 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .section {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 4rem 0;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.55fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .intro h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .accent-line {
+      width: 100%;
+      height: 1px;
+      margin-top: 3rem;
+      background: linear-gradient(90deg, var(--green), var(--coral), var(--blue));
+      opacity: 0.55;
+    }
+
+    footer {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1.5rem 0 2rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer nav a {
+      color: var(--ink);
+    }
+
+    @keyframes hero-breathe {
+      from {
+        transform: scale(1.02);
+      }
+      to {
+        transform: scale(1.055);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        padding-top: 1rem;
+      }
+
+      nav {
+        gap: 0.75rem;
+      }
+
+      .hero {
+        min-height: 690px;
+      }
+
+      .hero::before {
+        background-position: 58% center;
+      }
+
+      .hero-content {
+        padding-bottom: 2rem;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .intro {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Anastasiia Losieva</h1>
-    <p>Mobile App Developer</p>
-    <nav>
-      <a href="impressum.html">Impressum</a> |
+  <header class="site-header">
+    <p class="brand">Anastasiia Losieva</p>
+    <nav aria-label="Primary">
+      <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutzerklärung</a>
     </nav>
   </header>
 
   <main>
-    <p>Hi, I'm Anastasiia, a self-employed mobile app developer based in Berlin, Germany.</p>
-    <p>I create accessible and intuitive mobile applications</p>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">Mobile App Developer</p>
+        <h1 id="hero-title">Anastasiia Losieva</h1>
+        <p class="lead">I create accessible and intuitive mobile applications from Berlin, Germany.</p>
+        <div class="hero-actions" role="group" aria-label="App store profiles">
+          <a class="button primary" href="https://apps.apple.com/de/developer/anastasiia-losieva/id1789426317?l=en-GB" target="_blank" rel="noopener noreferrer">View on the App Store</a>
+          <a class="button secondary" href="https://play.google.com/store/apps/developer?id=Anastasiia+Losieva" target="_blank" rel="noopener noreferrer">View on Google Play</a>
+        </div>
+      </div>
+    </section>
 
-    <h2>My Apps</h2>
-    <p>Explore my published apps on Google Play:</p>
-    <a class="button" href="https://play.google.com/store/apps/developer?id=Anastasiia+Losieva" target="_blank">View on Google Play</a>
+    <section class="section intro" aria-labelledby="apps-title">
+      <h2 id="apps-title">Independent mobile apps with a calm, practical touch.</h2>
+      <div>
+        <p>Explore my published apps on the App Store and Google Play. I focus on clear product ideas, accessible interfaces, and everyday tools that feel simple to use.</p>
+        <div class="accent-line" aria-hidden="true"></div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Anastasiia Losieva</p>
-    <nav>
-      <a href="impressum.html">Impressum</a> |
+    <p>&copy; 2026 Anastasiia Losieva</p>
+    <nav aria-label="Footer">
+      <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutzerklärung</a>
     </nav>
   </footer>
