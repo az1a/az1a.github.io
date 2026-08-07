@@ -1,2 +1,3 @@
 User-agent: *
+Allow: /app/dialogia/account-deletion.html
 Disallow: /app/dialogia/
