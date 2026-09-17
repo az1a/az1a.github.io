@@ -12,16 +12,17 @@
     <article class="document">
       <section class="legal-content">
 <h1>Privacy Policy for LaVerba</h1>
-<p>Effective date: 2026-07-13</p>
+<p>Effective date: 2026-09-17</p>
 <p>This Privacy Policy describes the processing of personal data in connection with the mobile application LaVerba, formerly known as Dialogia. The name change does not affect the identity of the controller. The identity and contact details of the controller are set out in Section 12 of this Privacy Policy.</p>
 <h2>1. Categories of Personal Data</h2>
 <p>Depending on the manner in which the application is used, the following categories of personal data may be processed:</p>
 <ul>
-  <li>account and authentication data, including anonymous Firebase user identifiers and, where applicable, email address and authentication credentials processed through Firebase Authentication;</li>
+  <li>account and authentication data, including anonymous Firebase user identifiers and, where applicable, email address, email-verification status, and authentication metadata processed through Firebase Authentication. Passwords and authentication credentials are handled by Firebase Authentication and are not stored in LaVerba's own database;</li>
   <li>application settings and preference data, including language selections, onboarding choices, consent status, locale, theme, reminder settings, and region or country code used for consent logic;</li>
-  <li>learning and usage data, including progress, scores, total learned items, saved AI-generated dialogs, saved dictionary phrases, translations, practice counts, and whether a saved phrase came from an AI-generated dialog so that the correct grammar-cache policy can be applied;</li>
+  <li>learning and usage data, including progress, scores, total learned items, saved AI-generated and imported dialogs, dialog titles, turns, translations and edits, dialog-sync revisions and deletion markers, saved dictionary phrases, practice counts, and whether a saved phrase came from a user-created dialog so that the correct grammar-cache policy can be applied;</li>
   <li>speech-related data, including microphone input, speech-recognition results made available by the device or platform service, and speech-recognition quality reports submitted by the user;</li>
-  <li>AI feature input and output data, including prompts for dialog generation, sentences submitted for grammar explanation, and generated responses;</li>
+  <li>AI feature input and output data, including prompts for dialog generation, sentences submitted for grammar explanation, text extracted from a selected photograph or pasted by the user for dialog import, and AI-generated or AI-processed titles, dialog turns, corrections, translations, and explanations;</li>
+  <li>photo-import data, consisting of temporary on-device access to a photograph selected or taken by the user for text recognition. LaVerba does not upload the photograph as part of the dialog-import flow;</li>
   <li>subscription and entitlement data, including purchase status and subscription status processed through RevenueCat and the relevant app store platform;</li>
   <li>analytics data, where analytics is enabled in accordance with applicable law, such as app interaction events, onboarding completion, selected learning and native languages, motivation choice, consent status, region or country code used for consent logic, subscription event status, product identifier where applicable, and device or app identifiers; and</li>
   <li>technical and security data, including IP address, request metadata, timestamps, and authentication tokens processed in connection with backend requests.</li>
@@ -30,7 +31,7 @@
 <p>Personal data is processed for the following purposes:</p>
 <ul>
   <li>provision and operation of the application;</li>
-  <li>user authentication, account administration, and synchronization of eligible data;</li>
+  <li>user authentication, email verification, password administration, account administration, and synchronization of eligible data;</li>
   <li>provision of AI-assisted features;</li>
   <li>management of subscriptions and PRO entitlements;</li>
   <li>operation of speech-practice functionality;</li>
@@ -39,11 +40,17 @@
   <li>security, abuse prevention, quota enforcement, and service integrity; and</li>
   <li>compliance with legal obligations.</li>
 </ul>
-<h2>2A. AI Features and Grammar Cache</h2>
-<p>LaVerba offers AI-assisted features such as dialog generation and grammar explanations. Users should not submit sensitive personal information in AI prompts, generated-dialog situations, or sentences submitted for grammar explanation.</p>
+<h2>2A. AI Features, Dialog Import, and Grammar Cache</h2>
+<p>LaVerba offers AI-assisted features such as dialog generation, dialog import, translation, and grammar explanations. Users should not submit sensitive personal information, confidential information, or third-party personal data unless they are legally entitled to do so.</p>
+<p>When a dialog is imported from a photograph, text recognition takes place on the device and LaVerba does not upload the photograph. The extracted text, or text pasted by the user, is cleaned on the device and sent through LaVerba's Firebase backend to OpenAI to identify dialog turns, correct obvious text-recognition or spelling errors, create a title, and provide translations.</p>
+<p>The imported result is presented for editing before it is saved. A saved imported dialog is stored on the device and may be synchronized with the user's account as described below.</p>
 <p>For built-in app-provided dialog sentences, grammar explanations may be cached without user identifiers using a sentence hash, target language, native language, and generated explanation text. This cache is used to avoid repeated AI requests and may be reused for other users requesting the same built-in sentence and language pair.</p>
 <p>Grammar explanations for AI-generated dialogs or user-influenced saved lines are not intentionally stored in the shared grammar cache. Such sentences and generated explanations are still processed as necessary to provide the grammar explanation feature.</p>
-<h2>2B. No Sale, Ads, or Advertising Tracking</h2>
+<h2>2B. Accounts and Cloud Synchronization</h2>
+<p>LaVerba may create an anonymous Firebase account to authenticate backend requests. A user may optionally register an email-and-password account. Firebase Authentication handles email-verification messages, verification status, password-reset messages, reauthentication, and password changes.</p>
+<p>The application uses email-verification status to control access to its current cloud-synchronization functions. Progress synchronization stores dialog progress scores and totals. Dialog synchronization may store saved AI-generated and imported dialogs, including titles, turns, translations, edits, revision information, and content-free deletion markers used to prevent a deleted dialog from being restored by a stale device.</p>
+<p>Full dialog backup and download are currently PRO features. Eligible deletion operations may still be synchronized after PRO access ends so that previously uploaded content can be removed. Data that is not eligible for synchronization remains on the device.</p>
+<h2>2C. No Sale, Ads, or Advertising Tracking</h2>
 <p>LaVerba does not sell personal data. LaVerba does not display third-party advertising. LaVerba does not intentionally use personal data to track users across apps or websites for third-party advertising purposes.</p>
 <p>Some third-party service providers, such as Google Firebase, RevenueCat, OpenAI, Apple, and Google, may process data as described in their own privacy notices and as necessary to provide their services.</p>
 <h2>3. Legal Bases</h2>
@@ -58,9 +65,9 @@
 <h2>4. Recipients and Third-Party Services</h2>
 <p>Personal data may be processed by the following categories of recipients and service providers, to the extent necessary for the purposes stated above:</p>
 <ul>
-  <li>Google Firebase, including authentication, analytics, and backend infrastructure services;</li>
+  <li>Google Firebase, including authentication and account emails, analytics, cloud functions, database, and backend infrastructure services;</li>
   <li>RevenueCat, for subscription and entitlement management;</li>
-  <li>OpenAI, for AI-generated dialogs and grammar explanations;</li>
+  <li>OpenAI, for AI-generated dialogs, imported-dialog cleanup, turn identification and translation, and grammar explanations;</li>
   <li>Apple and Google, including the relevant app store and platform services; and</li>
   <li>speech-recognition services made available by the operating system or platform, where used by the device.</li>
 </ul>
@@ -69,15 +76,18 @@
 <p>Personal data is retained only for so long as necessary for the purposes set out in this Privacy Policy.</p>
 <p>In particular:</p>
 <ul>
-  <li>data stored solely on the device remains stored until deleted by the user, removed by clearing application data, or removed by uninstallation;</li>
-  <li>account-linked backend data is generally retained for the duration of the account relationship;</li>
+  <li>data stored solely on the device remains stored until deleted by the user, removed through in-app account deletion where applicable, removed by clearing application data, or removed by uninstallation;</li>
+  <li>account-linked backend data, including synchronized progress and active user-created dialogs, is generally retained for the duration of the account relationship;</li>
+  <li>content-free dialog deletion markers and synchronization metadata may be retained for the duration of the account relationship to prevent stale clients from restoring deleted content;</li>
+  <li>dialog-import text and AI responses are not intentionally retained as a separate content database by LaVerba's import backend. OpenAI may retain API prompts and responses in abuse-monitoring logs for up to 30 days by default, unless different retention controls apply or longer retention is required by law. OpenAI does not use API inputs or outputs to train its models by default unless the API account holder explicitly opts in;</li>
   <li>daily AI and grammar usage records linked to an account are removed when the user deletes the account through the in-app deletion function;</li>
   <li>speech-recognition quality reports may be retained without account linkage for quality-improvement purposes;</li>
   <li>shared grammar cache records may be retained without user identifiers until they are no longer needed for app functionality, quality improvement, abuse prevention, or maintenance; and</li>
   <li>limited technical and operational records may be retained where necessary for security, abuse prevention, reliability, or legal compliance.</li>
 </ul>
 <h2>6. Account Deletion</h2>
-<p>The application includes an in-app account deletion function. Upon account deletion, account-linked backend data associated with that account is deleted, including synced progress, synced AI dialogs, consent data stored in the user profile, and account-linked daily AI and grammar usage records, subject to any overriding legal, security, fraud-prevention, or technical retention requirements.</p>
+<p>The application includes an in-app account deletion function. Upon account deletion, account-linked backend data associated with that account is deleted, including synchronized progress, synchronized AI-generated and imported dialogs, dialog-sync metadata, consent data stored in the user profile, and account-linked daily AI and grammar usage records, subject to any overriding legal, security, fraud-prevention, or technical retention requirements.</p>
+<p>When deletion is completed through the application, account-scoped local data is also removed from that installation. Data already present on another offline device cannot be remotely erased and may remain on that device until its application data is cleared or the application is uninstalled.</p>
 <p>Speech-recognition quality reports submitted for quality-improvement purposes are not linked to the account identifier in the report collection and may therefore not be removable as account-linked data.</p>
 <p>Shared grammar cache records for built-in app-provided dialog sentences are not linked to the account identifier and may therefore not be removable as account-linked data.</p>
 <p>Account deletion does not cancel active subscriptions. Subscriptions must be cancelled through the Apple App Store or Google Play. Purchase, subscription, and entitlement records may continue to be retained by Apple, Google, and RevenueCat according to their own legal, financial, and operational requirements.</p>
@@ -91,7 +101,8 @@
 <h2>9. Data Subject Rights</h2>
 <p>Where applicable law provides such rights, data subjects may have the right to request access to personal data, rectification, erasure, restriction of processing, objection to processing, data portability, withdrawal of consent at any time with future effect, and the lodging of a complaint with a competent supervisory authority.</p>
 <h2>10. International Data Transfers</h2>
-<p>Where personal data is processed outside Germany or the European Economic Area, such processing is carried out subject to the safeguards required by applicable law.</p>
+<p>Service providers and their subprocessors may process personal data outside Germany or the European Economic Area. Depending on the provider and destination, transfers are based on an adequacy decision under Article 45 GDPR, including the EU-U.S. Data Privacy Framework where applicable, and/or the European Commission's Standard Contractual Clauses under Article 46 GDPR together with supplementary safeguards where required.</p>
+<p>Relevant contractual safeguards are incorporated into the applicable provider terms or data-processing addenda, including the <a href="https://firebase.google.com/terms/data-processing-terms">Firebase Data Processing and Security Terms</a>, the <a href="https://www.revenuecat.com/dpa">RevenueCat Data Processing Addendum</a>, and the <a href="https://openai.com/policies/data-processing-addendum/">OpenAI Data Processing Addendum</a>. Information about the applicable safeguard or a copy of the relevant clauses may also be requested using the contact details below.</p>
 <h2>11. Amendments</h2>
 <p>This Privacy Policy may be amended from time to time. The version published for the application shall be authoritative as of its stated effective date.</p>
 <h2>12. Controller and Contact Information</h2>
