@@ -12,7 +12,7 @@
     <article class="document">
       <section class="legal-content">
 <h1>Privacy Policy for LaVerba</h1>
-<p>Effective date: 2026-09-17</p>
+<p>Effective date: 2026-11-16</p>
 <p>This Privacy Policy describes the processing of personal data in connection with the mobile application LaVerba, formerly known as Dialogia. The name change does not affect the identity of the controller. The identity and contact details of the controller are set out in Section 12 of this Privacy Policy.</p>
 <h2>1. Categories of Personal Data</h2>
 <p>Depending on the manner in which the application is used, the following categories of personal data may be processed:</p>
@@ -24,7 +24,8 @@
   <li>AI feature input and output data, including prompts for dialog generation, sentences submitted for grammar explanation, text extracted from a selected photograph or pasted by the user for dialog import, and AI-generated or AI-processed titles, dialog turns, corrections, translations, and explanations;</li>
   <li>photo-import data, consisting of temporary on-device access to a photograph selected or taken by the user for text recognition. LaVerba does not upload the photograph as part of the dialog-import flow;</li>
   <li>subscription and entitlement data, including purchase status and subscription status processed through RevenueCat and the relevant app store platform;</li>
-  <li>analytics data, where analytics is enabled in accordance with applicable law, such as app interaction events, onboarding completion, selected learning and native languages, motivation choice, consent status, region or country code used for consent logic, subscription event status, product identifier where applicable, and device or app identifiers; and</li>
+  <li>analytics data, where analytics is enabled in accordance with applicable law, such as app interaction events, onboarding completion, selected learning and native languages, motivation choice, consent status, region or country code used for consent logic, subscription event status, product identifier where applicable, and device or app identifiers;</li>
+  <li>advertising measurement data, when you opt in, including app installation and activation, onboarding completion, trial or subscription starts, subscription product identifiers, event times, device advertising identifiers where available and permitted, SDK-generated app or device identifiers, IP address, and technical app and device information processed by the Meta SDK; and</li>
   <li>technical and security data, including IP address, request metadata, timestamps, and authentication tokens processed in connection with backend requests.</li>
 </ul>
 <h2>2. Purposes of Processing</h2>
@@ -37,6 +38,7 @@
   <li>operation of speech-practice functionality;</li>
   <li>storage of user preferences and reminders;</li>
   <li>analytics and service improvement, where permitted;</li>
+  <li>measuring and improving LaVerba advertising on Facebook and Instagram, including attributing installations and trial or subscription starts to advertising campaigns, when you opt in;</li>
   <li>security, abuse prevention, quota enforcement, and service integrity; and</li>
   <li>compliance with legal obligations.</li>
 </ul>
@@ -50,23 +52,29 @@
 <p>LaVerba may create an anonymous Firebase account to authenticate backend requests. A user may optionally register an email-and-password account. Firebase Authentication handles email-verification messages, verification status, password-reset messages, reauthentication, and password changes.</p>
 <p>The application uses email-verification status to control access to its current cloud-synchronization functions. Progress synchronization stores dialog progress scores and totals. Dialog synchronization may store saved AI-generated and imported dialogs, including titles, turns, translations, edits, revision information, and content-free deletion markers used to prevent a deleted dialog from being restored by a stale device.</p>
 <p>Full dialog backup and download are currently PRO features. Eligible deletion operations may still be synchronized after PRO access ends so that previously uploaded content can be removed. Data that is not eligible for synchronization remains on the device.</p>
-<h2>2C. No Sale, Ads, or Advertising Tracking</h2>
-<p>LaVerba does not sell personal data. LaVerba does not display third-party advertising. LaVerba does not intentionally use personal data to track users across apps or websites for third-party advertising purposes.</p>
-<p>Some third-party service providers, such as Google Firebase, RevenueCat, OpenAI, Apple, and Google, may process data as described in their own privacy notices and as necessary to provide their services.</p>
+<h2>2C. Advertising Measurement and Privacy Choices</h2>
+<p>LaVerba uses the Meta App Events SDK to measure and improve its advertising on Facebook and Instagram when you enable the optional Advertising measurement choice. This choice is offered separately from App analytics. Both choices are optional and can be changed in Settings &rarr; Account &amp; Privacy.</p>
+<p>The app starts Meta measurement only after you opt in. On iPhone, this integration also requires authorization through Apple's App Tracking Transparency prompt. A refusal or restriction of that system permission keeps Meta measurement disabled. The app checks the system permission again when it returns to the foreground and before reporting conversion events.</p>
+<p>The events selected by LaVerba are app activation and installation, onboarding completion, and confirmed trial or subscription starts, together with the subscription product identifier where applicable. The Meta SDK also processes device and app identifiers, IP address, event times, and technical information needed to receive and attribute events. Meta may link these data with information from its services and other businesses for advertising measurement, delivery, and personalization under its terms and privacy policy. See the <a href="https://www.facebook.com/privacy/policy/">Meta Privacy Policy</a> and <a href="https://www.facebook.com/legal/technology_terms">Meta Business Tools Terms</a>.</p>
+<p>New installations start with advertising measurement switched off. Existing installations that have no advertising choice are also treated as opted out. An earlier analytics permission applies to app analytics. Advertising measurement requires its own affirmative choice.</p>
+<p>Your advertising choice, the consent wording version, and the time of the choice are stored on the device. For signed-in accounts, this consent record may also be stored with the Firebase user profile. The advertising choice applies to the installation and is evaluated together with the device's system permission.</p>
+<p>Withdrawing advertising consent stops new advertising events from being submitted by LaVerba. Processing already initiated while consent was valid and data already received by Meta remain subject to applicable law and Meta's retention and privacy practices. You may contact us about your data rights and use Meta's privacy controls for information held by Meta.</p>
 <h2>3. Legal Bases</h2>
 <p>Where Regulation (EU) 2016/679 applies, processing is carried out on the following legal bases, as applicable:</p>
 <ul>
   <li>Article 6(1)(b) GDPR, where processing is necessary for the performance of a contract or in order to take steps at the request of the data subject prior to entering into a contract;</li>
-  <li>Article 6(1)(a) GDPR, where processing is based on consent, including, where applicable, analytics and certain device permissions;</li>
+  <li>Article 6(1)(a) GDPR, where processing is based on consent, including optional advertising measurement, app analytics where applicable, and certain device permissions;</li>
   <li>Article 6(1)(f) GDPR, where processing is necessary for the purposes of legitimate interests, in particular security, fraud prevention, abuse prevention, quota enforcement, and reliable operation of the service; and</li>
   <li>Article 6(1)(c) GDPR, where processing is necessary for compliance with a legal obligation.</li>
 </ul>
 <p>Where required by applicable law, analytics remains disabled unless and until the relevant consent has been granted or the application determines that such consent is not required.</p>
+<p>Advertising measurement requires affirmative consent in the app in every region. Where consent is required for storing or accessing information on a device, that consent also covers the corresponding SDK storage and access for the explained purpose. You may withdraw consent at any time with future effect. Access to learning and purchased features is available independently of these optional choices.</p>
 <h2>4. Recipients and Third-Party Services</h2>
 <p>Personal data may be processed by the following categories of recipients and service providers, to the extent necessary for the purposes stated above:</p>
 <ul>
   <li>Google Firebase, including authentication and account emails, analytics, cloud functions, database, and backend infrastructure services;</li>
   <li>RevenueCat, for subscription and entitlement management;</li>
+  <li>Meta Platforms Ireland Limited and relevant Meta affiliates, for advertising measurement and the further advertising uses described in Section 2C, when you opt in;</li>
   <li>OpenAI, for AI-generated dialogs, imported-dialog cleanup, turn identification and translation, and grammar explanations;</li>
   <li>Apple and Google, including the relevant app store and platform services; and</li>
   <li>speech-recognition services made available by the operating system or platform, where used by the device.</li>
@@ -74,6 +82,7 @@
 <p>The controller does not receive full payment card details. Payments are processed by the relevant app store platform.</p>
 <h2>5. Retention</h2>
 <p>Personal data is retained only for so long as necessary for the purposes set out in this Privacy Policy.</p>
+<p>The current advertising consent record and a local identifier used to suppress duplicate subscription-start events are retained in the installation's app data. Meta retains received event and identifier data under its own applicable terms, privacy policy, and legal obligations. Consent withdrawal applies to future event submission by LaVerba.</p>
 <p>In particular:</p>
 <ul>
   <li>data stored solely on the device remains stored until deleted by the user, removed through in-app account deletion where applicable, removed by clearing application data, or removed by uninstallation;</li>
@@ -103,6 +112,7 @@
 <h2>10. International Data Transfers</h2>
 <p>Service providers and their subprocessors may process personal data outside Germany or the European Economic Area. Depending on the provider and destination, transfers are based on an adequacy decision under Article 45 GDPR, including the EU-U.S. Data Privacy Framework where applicable, and/or the European Commission's Standard Contractual Clauses under Article 46 GDPR together with supplementary safeguards where required.</p>
 <p>Relevant contractual safeguards are incorporated into the applicable provider terms or data-processing addenda, including the <a href="https://firebase.google.com/terms/data-processing-terms">Firebase Data Processing and Security Terms</a>, the <a href="https://www.revenuecat.com/dpa">RevenueCat Data Processing Addendum</a>, and the <a href="https://openai.com/policies/data-processing-addendum/">OpenAI Data Processing Addendum</a>. Information about the applicable safeguard or a copy of the relevant clauses may also be requested using the contact details below.</p>
+<p>When advertising measurement is enabled, Meta may also process event data internationally under the safeguards described in the Meta Privacy Policy and applicable Meta Business Tools Terms, including the relevant controller and international transfer terms.</p>
 <h2>11. Amendments</h2>
 <p>This Privacy Policy may be amended from time to time. The version published for the application shall be authoritative as of its stated effective date.</p>
 <h2>12. Controller and Contact Information</h2>
